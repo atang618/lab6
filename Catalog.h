@@ -29,6 +29,7 @@ struct Catalog{
 
     //get vector of enrollments for given sid
     vector<Enroll> get_all_enrollments(int sid);
+    vector<Student> find_phiBetaKappa();
 
     //add to containers
     void add_student(Student & s);

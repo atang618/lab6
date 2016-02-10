@@ -47,8 +47,8 @@ void Catalog::add_enrollment(Enroll & e)
         cerr << "Error in Catalog::add_enrollment()-- Student: "<< the_sid << " is not a valid student in Catalog" << endl;
     }
 
-    //check whether a course_id exists Catalog, and if not, call cerr << [your message here]
-
+    if(courses.find(e.cid) == courses.end())//check whether a course_id exists Catalog, and if not, call cerr << [your message here]
+        cerr << "Error in Catalog::add_enrollment()-- Course: "<< e.cid << " is not a valid course in Catalog" << endl;
     else
     {
         enrollments.push_front(e);
@@ -132,4 +132,16 @@ void Catalog::print_catalog()
     print_courses();
     print_enrollments();
     cout << endl;
+}
+
+vector<Student> Catalog::find_phiBetaKappa() {
+    std::vector<Student> output;
+    for (unsigned int i=0; i <4; i++)
+    {
+        Student s=retrieve_student(i);
+        double gpa=s.compute_gpa();
+        if (gpa>=3.7)
+            output.push_back(s);
+    }
+    return output;
 }

@@ -28,7 +28,7 @@ struct Student {
 
     //constructors
     Student(); //default constructor
-    Student(string n, int a, string d, bool h = true); //note: bool h = true means default value is true, unless specified otherwise
+    Student(string n, int a = 18, string d, bool h = true); //note: bool h = true means default value is true, unless specified otherwise
 
     //function declarations
     void enroll_in_course(int cid);

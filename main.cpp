@@ -18,8 +18,7 @@ void run_two_tests(); // function declaration
 int main() {
     populate_db();
     CAESAR.print_catalog();
-
-    //run_two_tests();
+    run_two_tests();
     //CAESAR.print_catalog();
 }
 
@@ -29,21 +28,30 @@ void populate_db() // function definition
     Student s_1("Miguel", 22, "EECS");
     Student s_2("Tina", 20, "Math");
     Student s_3("Mike", 18, "Chemical Engineering");
+    Student s_4("Allen", 19, "EECS");
+    Student s_5("Joe", 20, "IE");
 
     //Add Students
     CAESAR.add_student(s_1);
     CAESAR.add_student(s_2);
     CAESAR.add_student(s_3);
+    CAESAR.add_student(s_4);
+    CAESAR.add_student(s_5);
 
     //Construct Courses
     Course algorithms(333, "EECS");
-    Course programming(230, "EECS");
+    Course programming(230, "EECS", "Programming for Engineers");
     Course algebra(101, "Math");
+    Course signals(222, "EECS", "Signals and Systems");
+    Course sustain(210, "ISEN", "Intro to Sustainability");
+    Course EA4(250,"GEN_ENG");
 
     //Add Courses
     CAESAR.add_course(algorithms);
     CAESAR.add_course(programming);
     CAESAR.add_course(algebra);
+    CAESAR.add_course(signals);
+    CAESAR.add_course(sustain);
 
     //Construct Enrollments
     Enroll e(s_1,algorithms, 3.9);
@@ -51,13 +59,22 @@ void populate_db() // function definition
     Enroll e3(s_1,algebra, 3);
     Enroll e4(s_2,algorithms, 3.5);
     Enroll e5(s_3,algorithms, 3.0);
-
+    Enroll e6(s_4,signals, 4.0);
+    Enroll e7(s_4,sustain, 4.0);
+    Enroll e8(s_5,signals, 3.5);
+    Enroll e9(s_5,sustain, 3.8);
+    Enroll e10(s_5, EA4 , 4.0);
     //Add Enrollments
     CAESAR.add_enrollment(e);
     CAESAR.add_enrollment(e2);
     CAESAR.add_enrollment(e3);
     CAESAR.add_enrollment(e4);
     CAESAR.add_enrollment(e5);
+    CAESAR.add_enrollment(e6);
+    CAESAR.add_enrollment(e7);
+    CAESAR.add_enrollment(e8);
+    CAESAR.add_enrollment(e9);
+    CAESAR.add_enrollment(e10);
 }
 
 void run_two_tests()
